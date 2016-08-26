@@ -11800,7 +11800,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11852,7 +11852,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
@@ -11861,7 +11861,7 @@ div#notebook {
 <span class="c1"># TODO: Calculate number of features</span>
 <span class="n">shape</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span>
 
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;yes&#39;</span><span class="p">]</span>
@@ -11892,7 +11892,7 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 394
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.01%
@@ -12153,44 +12153,79 @@ Grad rate of test set: 67.37%
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>DECISION TREES: 
-Applications:
--Classification and regression. Decision Trees has been used in a diverse number of fields which includes: Agriculture, Astronomy, Financial Analysis, Medicine, Object Recognition, Pharmacology, Remote Sensing, and Text Processing. 
-Strenghts:
--Fast
--Can handle numerical and non-numerical data
--They are easy to understand and simple to visualize
--Low computational cost, O(log N) for the number of trained data points. 
--Can classify more than 2 types (binary classification) of outputs
-Weaknesses:
--Don't generalize the data (overfit). 
--Unstable
--Data not balanced could be proned to generate biased trees
-Reasons for choosing: Easy to interpret</p>
+<ul>
+<li><code>DECISION TREES:</code> <ul>
+<li>Applications:<ul>
+<li>Classification and regression. Decision Trees has been used in a diverse number of fields which includes: Agriculture, Astronomy, Financial Analysis, Medicine, Object Recognition, Pharmacology, Remote Sensing, and Text Processing. </li>
+</ul>
+</li>
+<li>Strenghts:<ul>
+<li>Fast</li>
+<li>Can handle numerical and non-numerical data</li>
+<li>They are easy to understand and simple to visualize</li>
+<li>Low computational cost, O(log N) for the number of trained data points. </li>
+<li>Can classify more than 2 types (binary classification) of outputs</li>
+</ul>
+</li>
+<li>Weaknesses:<ul>
+<li>Don't generalize the data (overfit). </li>
+<li>Unstable</li>
+<li>Data not balanced could be proned to generate biased trees</li>
+</ul>
+</li>
+<li>Reasons for choosing: Easy to interpret, fast computation, doesn not require large sets of training data</li>
+</ul>
+</li>
+</ul>
 <p>(www.cbcb.umd.edu/~salzberg/docs/murthy_thesis/survey/node32.html)</p>
-<p>NAIVE BAYES: 
-Applications:
--The have performed very well in many real-world  classification problems, such as spam detection, document   classification. 
--Assumes each distribution can be independently estimated, thus Naive. 
--Its independency assumption alliviates the problem of course of dimensionality, it usually requires a smaller sets of data for training. 
-Strenghts: 
--Classification, seems to perform well for binary classification problems
-Weaknesses: 
--Performance might not be as good as SVM, it doens't model the interrelation between attributes
--Bad estimators
-Reasons for choosing:</p>
-<p>SUPPORT VECTOR MACHINE:
- Applications: 
- -Classification (SVC) and regression (SVR)
- -SVM has been used for Financial Applications (www.svms.org/finance)
- -It has also been applied to image classification with better performance than traditional query refinement methods (www.wikipedia.org)
- Strenghts: 
- -Performs well in higher dimensions even with small training sets
- -Memory efficient, uses support vectors in the decision function
- -Flexible, kernel functions can be implemented for the decision function
- Weaknesses:
- -Preforms poorly for cases when number of features is much greated than the training set
-Reasons for choosing:</p>
+<ul>
+<li><code>NAIVE BAYES:</code> <ul>
+<li>Applications:<ul>
+<li>The have performed very well in many real-world  classification problems, such as spam detection, document   classification. </li>
+<li>Assumes each distribution can be independently estimated, thus Naive. </li>
+<li>Its independency assumption alliviates the problem of course of dimensionality, it usually requires a smaller sets of data for training. </li>
+</ul>
+</li>
+<li>Strenghts: <ul>
+<li>Classification, seems to perform well for binary classification problems</li>
+</ul>
+</li>
+<li>Weaknesses: <ul>
+<li>Performance might not be as good as SVM, it doens't model the interrelation between attributes</li>
+<li>Bad estimators</li>
+</ul>
+</li>
+<li>Reasons for choosing: Performs well for categorical data, our data contains some numberical values and many categorical ones. It's fast, doesn't require much training data. Since it assumes independency among features, we have 30 features in our data set, computation is fast. </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><code>SUPPORT VECTOR MACHINE:</code><ul>
+<li>Applications: <ul>
+<li>Classification (SVC) and regression (SVR)</li>
+<li>SVM has been used for Financial Applications (www.svms.org/finance)</li>
+<li>It has also been applied to image classification with better performance than traditional query refinement methods (www.wikipedia.org)</li>
+</ul>
+</li>
+<li>Strenghts: <ul>
+<li>Performs well in higher dimensions even with small training sets</li>
+<li>Memory efficient, uses support vectors in the decision function</li>
+<li>Flexible, kernel functions can be implemented for the decision function</li>
+</ul>
+</li>
+<li>Weaknesses:<ul>
+<li>Preforms poorly for cases when number of features is much greated than the training set</li>
+</ul>
+</li>
+<li>Reasons for choosing:  <ul>
+<li>Outperforms Decision Trees in a variety of applications</li>
+<li>Performs well with high input dimension space (number of features). </li>
+<li>Requires more computation than Decision Trees and Naive Bayes, but its performance might make it a worth it.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
